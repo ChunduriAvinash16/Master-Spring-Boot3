@@ -35,6 +35,8 @@
 - @ConfigurationProperties
 - @RestController
 - @RequestMapping
+- @ResponseBody
+- @Controller
 - @SpringBootConfiguration => @SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan
 
 
@@ -46,3 +48,10 @@
 - Goal of Spring Boot is to help you build PRODUCTION-READY apps QUICKLY. 
   - QUICKLY - Spring Initializr, Spring Boot Starter Projects, Spring Boot Auto Configuration, Spring Boot DevTools
   - PRODUCTION-READY - Logging, Profiles, ConfigurationProperties, Monitoring (Spring Boot Actuator)
+
+- To pass the request parameter we will use something call Model (ModelMap). then view pick the value 
+  by Expression Language(EL)
+# Acronym
+- JSP : Java Server Pages
+
+  
