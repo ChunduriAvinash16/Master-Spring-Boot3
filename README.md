@@ -66,6 +66,13 @@
 - To pass the request parameter we will use something call Model (ModelMap). then view pick the value 
   by Expression Language(EL)
   
+# Validations using Spring Boot Starter Validation
+  - Command Bean (Form Backing Object)
+2 way binding
+    - 
+    - 
+- spring.mvc.format.date = yyyy-MM-dd
+
   
 # Acronym
 - JSP : Java Server Pages
