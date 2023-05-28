@@ -58,6 +58,20 @@
 - spring.jpa.show-sql = true
 - spring.jpa.defer-datasource-initialization=true
 
+# MYSQL :
+- docker run --detach --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=todos-user --env MYSQL_PASSWORD=dummytodos --env MYSQL_DATABASE=todos --name mysql --publish 3306:3306 mysql:8-oracle
+- spring.jpa.hibernate.ddl-auto=update 
+- spring.datasource.url=jdbc:mysql://localhost:3306/todos 
+- spring.datasource.username=todos-user 
+- spring.datasource.password=dummytodos 
+- spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+- MYSQLSH Commands
+  - mysqlsh 
+  - \connect todos-user@localhost:3306 
+  - \sql 
+  - use todos 
+  - select * from todo; 
+  - \quit
 # JDBC to Spring JDBC to JPA to Spring Data JPA
 - @Transactional
 - @PersistenceContext

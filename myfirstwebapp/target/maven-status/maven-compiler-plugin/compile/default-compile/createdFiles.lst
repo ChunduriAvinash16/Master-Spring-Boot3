@@ -1,5 +1,7 @@
+com\learn\springboot\myfirstwebapp\todo\TodoControllerJPA.class
 com\learn\springboot\myfirstwebapp\login\WelcomeController.class
 com\learn\springboot\myfirstwebapp\security\SpringSecurityConfig.class
+com\learn\springboot\myfirstwebapp\todo\TodoRepository.class
 com\learn\springboot\myfirstwebapp\todo\TodoController.class
 com\learn\springboot\myfirstwebapp\MyfirstwebappApplication.class
 com\learn\springboot\myfirstwebapp\todo\Todo.class
