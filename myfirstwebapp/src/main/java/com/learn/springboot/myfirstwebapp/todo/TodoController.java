@@ -1,6 +1,7 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -23,22 +24,26 @@ public class TodoController {
 
     @RequestMapping("list-todos")
     public String listAlltodos(ModelMap model) {
-        model.put("todos",todoService.getTodoByUsername("learn"));
+        String username = getLoggedinUsername();
+//        System.out.println(username);
+        model.put("todos",todoService.getTodoByUsername(username));
         return  "listTodos";
     }
 
     @RequestMapping(value = "add-todo",method = RequestMethod.GET)
     public String addNewTodo(ModelMap map)  {
-        map.put("todo",new Todo(0, (String) map.get("name"),"",LocalDate.now(),false));
+        String username = getLoggedinUsername();
+        map.put("todo",new Todo(0, username,"",LocalDate.now(),false));
         return "todo";
     }
 
     @RequestMapping(value = "add-todo",method = RequestMethod.POST)
     public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result)  {
+        String username = getLoggedinUsername();
         if(result.hasErrors()) {
             return "todo";
         }
-        todoService.addTodo((String) model.get("name"),todo.getDescription(), todo.getTargetDate(),false);
+        todoService.addTodo(username,todo.getDescription(), todo.getTargetDate(),false);
         return "redirect:list-todos";
     }
 
@@ -60,7 +65,12 @@ public class TodoController {
         if(result.hasErrors()) {
             return "todo";
         }
+        todo.setUsername(getLoggedinUsername());
         todoService.updateTodo(todo);
         return "redirect:list-todos";
+    }
+
+    private String getLoggedinUsername() {
+        return SecurityContextHolder.getContext().getAuthentication().getName().toString();
     }
 }
