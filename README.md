@@ -55,6 +55,8 @@
 # Spring h2 Database
 - spring.h2.console.enabled = true 
 - spring.datasource.url = jdbc:h2:mem:test
+- spring.jpa.show-sql = true
+- spring.jpa.defer-datasource-initialization=true
 
 # JDBC to Spring JDBC to JPA to Spring Data JPA
 - @Transactional
