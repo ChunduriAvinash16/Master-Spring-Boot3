@@ -82,5 +82,6 @@
 - REST : Representational state transfer
 - JDBC : Java Database Connectivity
 - JPA : Java Persistence API 
+- CSRF : Cross-Site Request Forgery 
 
   
