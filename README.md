@@ -41,7 +41,7 @@
 - @ResponseBody
 - @Controller
 - **@SpringBootConfiguration => @SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan**
-
+- @GetMapping
 
 # Actuator
 - management.endpoints.web.exposure.include = *
@@ -100,4 +100,7 @@
 - JPA : Java Persistence API 
 - CSRF : Cross-Site Request Forgery 
 
-  
+# Auto configure 
+- DispatcherServletAutoConfiguration : Front Controller Pattern.
+- JacksonHttpMessageConvertersConfiguration : Converts Bean into JSON Object.
+- ErrorMvcAutoConfiguration : Error Mapping.
